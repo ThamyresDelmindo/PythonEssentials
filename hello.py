@@ -35,3 +35,4 @@ elif current_language == "it_IT":
     
 print(msg)
     
+print(1+1)
