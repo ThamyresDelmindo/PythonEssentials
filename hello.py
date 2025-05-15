@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/env python3
 """Documentação do meu programa.
 Hello World - Português - BR
@@ -35,3 +36,10 @@ elif current_language == "it_IT":
     
 print(msg)
     
+=======
+#!/usr/bin/env python3
+print("Hello, world!")
+#este programa imprime Hello World
+
+teste 
+>>>>>>> ba6fe0142f24870db4240cce738042cda9edd61f
