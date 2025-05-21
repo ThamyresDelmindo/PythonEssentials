@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 Olá, %(nome)s
     ...: 
     ...: Tem interesse em comprar uma  %(produto)s?
