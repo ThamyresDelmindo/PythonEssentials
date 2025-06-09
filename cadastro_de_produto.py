@@ -4,6 +4,7 @@ __version__ = "0.1.0"
 
 import pprint
 
+#dicionario
 produto = {
     "nome": "Caneta",
     "cores": ["azul", "amarelo"],
@@ -17,13 +18,15 @@ produto = {
     "codebar": None,
 }
 
-
+#selecionando a variável na ordem
 compra = ("Bruno", "nome", 3)
 
+#dicionario somente para o bruno
 cliente = {
     "nome": "Bruno"
 }
 
+#colocando a variável criada conforme a ordem
 compra = {
     "cliente": cliente,
     "produto": produto,
@@ -32,6 +35,7 @@ compra = {
 
 #pprint.pprint(compra)
 
+#declarando uma variável nova para facilitar o código
 total_compra = compra["quantidade"] * compra["produto"]["preco"]
 
 print(
