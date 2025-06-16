@@ -23,11 +23,15 @@ operação: sum
 n1: 5
 n2: 4
 9
+
+Os resultados serão salvos em "prefixcal.log"
 """
 
 __version__ = "0.1.0"
 
+import os
 import sys 
+from datetime import datetime
 
 arguments = sys.argv[1:]
 
@@ -42,6 +46,7 @@ elif len(arguments) != 3:
     sys.exit(1)
 
 operation, *nums = arguments
+
 valid_operations = ("sum", "sub", "mul", "div")
 if operation not in valid_operations:
     print("Operação inválida")
@@ -70,5 +75,16 @@ elif operation == "mul":
     result = n1 * n2
 elif operation == "div":
     result = n1 / n2    
+
+
+path = os.curdir
+filepath = os.path.join(path, "prefixcalc.log")
+timestamp = datetime.now().isoformat()
+user = os.getenv('USER', 'anonymous')
+
+with open(filepath, "a") as file_:
+    file_.write(f"{timestamp} - {user} - {operation}, {n1}, {n2} = {result}\n")
+
+# print(f"{operation}, {n1}, {n2} = {result}", file=open(filename, "a")) (não é muito utilizado)
 
 print(f"O resultado é {result}")
