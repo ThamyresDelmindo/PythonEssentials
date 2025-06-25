@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env "source .venv/bin/activate" python3
 """Calculadora prefix.
 
 Funcionamento:

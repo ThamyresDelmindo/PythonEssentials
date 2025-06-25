@@ -14,26 +14,40 @@ Tenha a variável LANG devidamente configurada ex:
     export LANG=pt_BR
 Execução:
     python3 hello.py --lang=en_US (Count só se quiser a repetição em si)
+
+#Meu python3 Hello World não vai sozinho, por alguma config sistêmica que não irei mecher
+#Mas se eu rodar a lang corretamente que quero, ele roda tranquilo o Hello World
+#python3 hello.py --lang=en_US --count=2
 """
 __version__ = "0.0.3"
 __license__ = "Unlicense"
 
 import os
 import sys
-#Meu python3 Hello World não vai sozinho, por alguma config sistêmica que não irei mecher
-#Mas se eu rodar a lang corretamente que quero, ele roda tranquilo o Hello World
-#python3 hello.py --lang=en_US --count=2
+import logging 
+
+log_level = os.getenv("LOG_LEVEL", "WARNING").upper()
+log = logging.Logger("logs.py", log_level)  #é só a definição do nome que vai aparecer quando der o erro, posso usar qualquer nome na string
+ch = logging.StreamHandler()
+ch.setLevel(log_level)
+fmt = logging.Formatter(
+    '%(asctime)s %(name)s %(levelname)s ' 
+    'l:%(lineno)d f:%(filename)s: %(message)s'
+)
+ch.setFormatter(fmt)
+log.addHandler(ch)
+
 arguments = {"lang": None, "count": 1}
 
 for arg in sys.argv[1:]:
     try:
         key, value = arg.split("=")
     except ValueError as e:
-        #TODO: Substituir essas linhas com loggin
-        print(f"[ERROR] {str(e)}")
-        print("You need to use `=`")
-        print(f"You passed {arg}")
-        print("Try with --key=value")
+        log.error(
+            "You nedd to use '=', you passed %s, try --key=value: %s",
+            arg,
+            str(e)
+        )
         sys.exit(1)
 
     key = key.lstrip("-").strip()
