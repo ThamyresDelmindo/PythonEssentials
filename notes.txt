@@ -1,2 +1,3 @@
 Minha primeira nota	gerak	primeira nota
 Minha segunda nota	tech	Segunda nota
+Teste	tech	teste
