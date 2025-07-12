@@ -1,0 +1,4 @@
+#cliente, quarto, dias
+bruno, 3, 12
+Thamy, 1, 15
+Thamyres, 2, 15
